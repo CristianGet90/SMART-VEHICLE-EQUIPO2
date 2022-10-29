@@ -54,17 +54,12 @@ export class Asesor extends Entity {
   })
   email: string;
 
+  
   @property({
     type: 'string',
     required: true,
   })
-  usuario: string;
-
-  @property({
-    type: 'string',
-    required: true,
-  })
-  contrasena: string;
+  clave: string;
 
   @hasMany(() => Vehiculo)
   vehiculos: Vehiculo[];

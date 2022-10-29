@@ -15,19 +15,13 @@ export class Vehiculo extends Entity {
     type: 'string',
     required: true,
   })
-  tipo: string;
-
-  @property({
-    type: 'string',
-    required: true,
-  })
-  marca: string;
-
-  @property({
-    type: 'string',
-    required: true,
-  })
   placa: string;
+
+  @property({
+    type: 'string',
+    required: true,
+  })
+  tipo: string;
 
   @property({
     type: 'string',
@@ -39,25 +33,32 @@ export class Vehiculo extends Entity {
     type: 'string',
     required: true,
   })
+  marca: string;
+
+  
+  @property({
+    type: 'string',
+    required: true,
+  })
   caracteristicas: string;
 
   @property({
-    type: 'string',
+    type: 'number',
     required: true,
   })
-  estado_vehiculo: string;
+  estado_vehiculo: number;
 
   @property({
-    type: 'string',
+    type: 'number',
     required: true,
   })
-  valor_alquiler: string;
+  valor_alquiler: number;
 
   @property({
-    type: 'string',
+    type: 'number',
     required: true,
   })
-  valor_compra: string;
+  valor_compra: number;
 
   @property({
     type: 'string',
@@ -71,6 +72,7 @@ export class Vehiculo extends Entity {
   })
   imagen: string;
 
+  //este atributo no es mandatorio
   @property({
     type: 'string',
   })

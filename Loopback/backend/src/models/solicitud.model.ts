@@ -12,10 +12,10 @@ export class Solicitud extends Entity {
   id?: string;
 
   @property({
-    type: 'string',
+    type: 'number',
     required: true,
   })
-  tipo_solicitud: string;
+  tipo_solicitud: number;
 
   @property({
     type: 'number',

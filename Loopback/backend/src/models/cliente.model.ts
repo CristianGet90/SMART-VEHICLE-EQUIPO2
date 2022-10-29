@@ -26,7 +26,7 @@ export class Cliente extends Entity {
     type: 'string',
     required: true,
   })
-  tipo_documento: string;
+  tipo_documento: string; //preguntar al profesor si de puede dejar numerico
 
   @property({
     type: 'string',
@@ -52,17 +52,20 @@ export class Cliente extends Entity {
   })
   email: string;
 
+  /*  Se elimina el atributo usuario ya que el usuario es el mismo email
   @property({
     type: 'string',
     required: true,
   })
   usuario: string;
+  */
+
 
   @property({
     type: 'string',
     required: true,
   })
-  contrasena: string;
+  clave: string;
 
   @hasMany(() => Solicitud)
   solicituds: Solicitud[];

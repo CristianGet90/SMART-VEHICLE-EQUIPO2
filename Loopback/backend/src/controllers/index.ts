@@ -8,3 +8,8 @@ export * from './asesor-administrador.controller';
 export * from './administrador-asesor.controller';
 export * from './solicitud-asesor.controller';
 export * from './asesor-solicitud.controller';
+export * from './administrador.controller';
+export * from './asesor.controller';
+export * from './cliente.controller';
+export * from './solicitud.controller';
+export * from './vehiculo.controller';

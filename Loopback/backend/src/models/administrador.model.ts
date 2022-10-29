@@ -52,17 +52,18 @@ export class Administrador extends Entity {
   })
   email: string;
 
+  /* Se elimina el atributo usuario ya que el usuario es el mismo email
   @property({
     type: 'string',
     required: true,
   })
   usuario: string;
-
+*/
   @property({
     type: 'string',
     required: true,
   })
-  contrasena: string;
+  clave: string;
 
   @hasMany(() => Asesor)
   asesors: Asesor[];
