@@ -1,3 +1,4 @@
+import { authenticate } from '@loopback/authentication';
 import {
   Count,
   CountSchema,
@@ -19,6 +20,8 @@ import {
 } from '@loopback/rest';
 import {Vehiculo} from '../models';
 import {VehiculoRepository} from '../repositories';
+
+@authenticate("admin")//servicio de autenticacion de token
 
 export class VehiculoController {
   constructor(
@@ -46,7 +49,7 @@ export class VehiculoController {
   ): Promise<Vehiculo> {
     return this.vehiculoRepository.create(vehiculo);
   }
-
+  @authenticate.skip()//En este caso pedimos que elservicio de autenticacion se salte esta acción  de optener la cantidad de productos
   @get('/vehiculos/count')
   @response(200, {
     description: 'Vehiculo model count',
