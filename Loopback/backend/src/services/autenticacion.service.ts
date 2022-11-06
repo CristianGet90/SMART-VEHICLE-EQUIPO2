@@ -108,7 +108,7 @@ export class AutenticacionService {
   return token;
   }
 
-  
+  //Válida para todos
   ValidarTokenJWT(token: string){
     try{
       let datos = jwt.verify(token, LLaves.claveJWT);

@@ -9,8 +9,8 @@ import { AutenticacionService } from "../services";
 
 
 
-export class EstrategiaAdministrador implements AuthenticationStrategy{
-    name: string = 'admin';
+export class EstrategiaAsesor implements AuthenticationStrategy{
+    name: string = 'asesor';
 
     constructor(
     @service(AutenticacionService)
