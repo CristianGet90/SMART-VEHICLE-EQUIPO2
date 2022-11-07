@@ -7,8 +7,6 @@ import { AutenticacionService } from "../services";
 
 //import { NotificacionService } from "../services/notificacion.service";
 
-
-
 export class EstrategiaAdministrador implements AuthenticationStrategy{
     name: string = 'cliente';
 
