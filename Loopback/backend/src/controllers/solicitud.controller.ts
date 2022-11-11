@@ -80,6 +80,8 @@ export class SolicitudController {
     return this.solicitudRepository.find(filter);
   }
 
+  @authenticate.skip()
+
   @patch('/solicitudes')
   @response(200, {
     description: 'Solicitud PATCH success count',
