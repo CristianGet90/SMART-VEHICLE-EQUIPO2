@@ -2,45 +2,40 @@ import { AuthenticationStrategy } from "@loopback/authentication";
 import { service } from "@loopback/core";
 import { HttpErrors, Request } from "@loopback/rest";
 import { UserProfile } from "@loopback/security";
-import parseBearerToken  from "parse-bearer-token";
+import parseBearerToken from "parse-bearer-token";
 import { AutenticacionService } from "../services";
 
 //import { NotificacionService } from "../services/notificacion.service";
 
 
 
-export class EstrategiaAdministrador implements AuthenticationStrategy{
+export class EstrategiaAdministrador implements AuthenticationStrategy {
     name: string = 'admin';
 
     constructor(
-    @service(AutenticacionService)
-    public servicioAutenticacion: AutenticacionService 
-    ){}
+        @service(AutenticacionService)
+        public servicioAutenticacion: AutenticacionService
+    ) { }
 
-    async authenticate(request:Request): Promise<UserProfile | undefined> {
+    async authenticate(request: Request): Promise<UserProfile | undefined> {
         let token = parseBearerToken(request);
-        if (token){
+        if (token) {
             let datos = this.servicioAutenticacion.ValidarTokenJWT(token);
-            if (datos){
-                if (datos.data.rol=='administrador'){
+            if (datos) {
+                if (datos.data.rol == 'administrador' || datos.data.rol=='asesor') {
                     let perfil: UserProfile = Object.assign({
-                    nombre: datos.data.nombre
-                });
-                return perfil;
+                        nombre: datos.data.nombre
+                    });
+                    return perfil;
 
+                } else {
+                    throw new HttpErrors[401]("Rol sin acceso");
                 }
-                let perfil: UserProfile = Object.assign({
-                    nombre: datos.data.nombre
-                });
-                return perfil;
-
-            }else{
-                throw new HttpErrors[401]("El token incluido no es valido.")
+            } else {
+                throw new HttpErrors[401]("token inválido");
             }
-
-        }else{
-            throw new HttpErrors[401]("No se ha incluido un token en la solicitud.")
+        } else {
+            throw new HttpErrors[401]("No hay token en la petición");
         }
     }
-
 }

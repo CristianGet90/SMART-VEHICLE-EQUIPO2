@@ -33,7 +33,7 @@ export class AutenticacionService {
     return claveCifrada;
   }
   //Identificacion de cliente , Autenticacion
-  IdentificarCliente(usuario:string, clave:string){
+  IdentificarCliente(usuario:string, clave:string, rol:string){
     try {
       let p = this.clienteRepository.findOne({where : {email: usuario,clave: clave}});
       if(p){
@@ -44,7 +44,7 @@ export class AutenticacionService {
       return false;
     }
   }
-  IdentificarAsesor(usuario:string, clave:string){
+  IdentificarAsesor(usuario:string, clave:string, rol:string){
     try {
       let p = this.asesorRepository.findOne({where : {email: usuario,clave: clave}});
       if(p){
@@ -55,7 +55,7 @@ export class AutenticacionService {
       return false;
     }
   }
-  IdentificarAdmin(usuario:string, clave:string){
+  IdentificarAdmin(usuario:string, clave:string, rol:string){
     try {
       let p = this.administradorRepository.findOne({where : {email: usuario,clave: clave}});
       if(p){

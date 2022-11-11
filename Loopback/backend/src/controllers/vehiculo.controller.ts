@@ -22,6 +22,7 @@ import {Vehiculo} from '../models';
 import {VehiculoRepository} from '../repositories';
 
 @authenticate("admin")//servicio de autenticacion de token
+//@authenticate("asesor")//servicio de autenticacion de token
 
 export class VehiculoController {
   constructor(
@@ -60,7 +61,7 @@ export class VehiculoController {
   ): Promise<Count> {
     return this.vehiculoRepository.count(where);
   }
-
+  @authenticate.skip()
   @get('/vehiculos')
   @response(200, {
     description: 'Array of Vehiculo model instances',

@@ -45,7 +45,7 @@ export class AdministradorController {
   async identificarPersona(
     @requestBody() credenciales: Credenciales
   ){
-    let p = await this.servicioAutenticacion.IdentificarAdmin(credenciales.usuario, credenciales.clave);
+    let p = await this.servicioAutenticacion.IdentificarAdmin(credenciales.usuario, credenciales.clave, credenciales.rol);
     if (p){
       let token = this.servicioAutenticacion.GenerarTokenAdmin(p);
       return {
@@ -100,7 +100,7 @@ export class AdministradorController {
 
   }
 
-  @get('/administradors/count')
+  @get('/administradores/count')
   @response(200, {
     description: 'Administrador model count',
     content: {'application/json': {schema: CountSchema}},
@@ -111,7 +111,7 @@ export class AdministradorController {
     return this.administradorRepository.count(where);
   }
 
-  @get('/administradors')
+  @get('/administradores')
   @response(200, {
     description: 'Array of Administrador model instances',
     content: {
@@ -129,7 +129,7 @@ export class AdministradorController {
     return this.administradorRepository.find(filter);
   }
 
-  @patch('/administradors')
+  @patch('/administradores')
   @response(200, {
     description: 'Administrador PATCH success count',
     content: {'application/json': {schema: CountSchema}},
@@ -148,7 +148,7 @@ export class AdministradorController {
     return this.administradorRepository.updateAll(administrador, where);
   }
 
-  @get('/administradors/{id}')
+  @get('/administradores/{id}')
   @response(200, {
     description: 'Administrador model instance',
     content: {
@@ -164,7 +164,7 @@ export class AdministradorController {
     return this.administradorRepository.findById(id, filter);
   }
 
-  @patch('/administradors/{id}')
+  @patch('/administradores/{id}')
   @response(204, {
     description: 'Administrador PATCH success',
   })
@@ -182,7 +182,7 @@ export class AdministradorController {
     await this.administradorRepository.updateById(id, administrador);
   }
 
-  @put('/administradors/{id}')
+  @put('/administradores/{id}')
   @response(204, {
     description: 'Administrador PUT success',
   })
@@ -193,7 +193,7 @@ export class AdministradorController {
     await this.administradorRepository.replaceById(id, administrador);
   }
 
-  @del('/administradors/{id}')
+  @del('/administradores/{id}')
   @response(204, {
     description: 'Administrador DELETE success',
   })

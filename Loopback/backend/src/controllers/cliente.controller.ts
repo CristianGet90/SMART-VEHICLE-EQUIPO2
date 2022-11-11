@@ -45,7 +45,7 @@ export class ClienteController {
   async identificarPersona(
     @requestBody() credenciales: Credenciales
   ) {
-    let p = await this.servicioAutenticacion.IdentificarCliente(credenciales.usuario, credenciales.clave);
+    let p = await this.servicioAutenticacion.IdentificarCliente(credenciales.usuario, credenciales.clave, credenciales.rol);
     if (p){
       let token = this.servicioAutenticacion.GenerarTokenCliente(p);
       return {
