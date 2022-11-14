@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "FrontendVehicle": {
+    "FrontendPedidos": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/frontend-vehicle",
+            "outputPath": "dist/frontend-pedidos",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -23,9 +23,12 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.css"
-            ],
-            "scripts": []
+              "src/styles.css",
+              "node_modules/materialize-css/dist/css/materialize.min.css"
+              ],
+              "scripts": [
+              "node_modules/materialize-css/dist/js/materialize.min.js"
+              ]
           },
           "configurations": {
             "production": {
@@ -64,10 +67,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "FrontendVehicle:build:production"
+              "browserTarget": "FrontendPedidos:build:production"
             },
             "development": {
-              "browserTarget": "FrontendVehicle:build:development"
+              "browserTarget": "FrontendPedidos:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -75,7 +78,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "FrontendVehicle:build"
+            "browserTarget": "FrontendPedidos:build"
           }
         },
         "test": {
@@ -99,6 +102,6 @@
     }
   },
   "cli": {
-    "analytics": "f361a9ce-3df0-4311-b97b-d1498d420c28"
+    "analytics": false
   }
 }
