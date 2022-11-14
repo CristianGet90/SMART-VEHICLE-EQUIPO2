@@ -1,20 +1,21 @@
 <nav>
-    <div class="nav-wrapper">
-      <a routerLink="#!" class="brand-logo">Logo</a>
+  <div class="nav-wrapper #4caf50 green">
+      <a routerLink="/inicio" class="brand-logo">Logo</a>
       <a routerLink="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
       <ul class="right hide-on-med-and-down">
-        <li><a routerLink="sass.html">Sass</a></li>
-        <li><a routerLink="badges.html">Components</a></li>
-        <li><a routerLink="collapsible.html">Javascript</a></li>
-        <li><a routerLink="mobile.html">Mobile</a></li>
-      </ul>
-    </div>
-  </nav>
+          <li><a routerLink="/administracion/personas">Personas</a></li>
+          <li><a routerLink="/administracion/productos">Vehiculos</a></li>
+          <li><a routerLink="/solicitudes/registar-solicitud">Solicitudes</a></li>
+          <li><a routerLink="/seguridad/identificar">Iniciar sesion</a></li>
 
-  <ul class="sidenav" id="mobile-demo">
-    <li><a routerLink="sass.html">Sass</a></li>
-    <li><a routerLink="badges.html">Components</a></li>
-    <li><a routerLink="collapsible.html">Javascript</a></li>
-    <li><a routerLink="mobile.html">Mobile</a></li>
-  </ul>
-          
+      </ul>
+  </div>
+</nav>
+
+<ul class="sidenav" id="mobile-demo">
+  <li><a routerLink="/administracion/personas">Personas</a></li>
+  <li><a routerLink="/administracion/productos">Vehiculos</a></li>
+  <li><a routerLink="/Solicitudes/registar-solicitud">Solicitudes</a></li>
+  <li><a routerLink="/seguridad/cambio-clave">Cambiar clave</a></li>
+</ul>
+
