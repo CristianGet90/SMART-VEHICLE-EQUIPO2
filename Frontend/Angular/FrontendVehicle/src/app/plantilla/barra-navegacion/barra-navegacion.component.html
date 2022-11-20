@@ -5,19 +5,24 @@
       </a>
       <a routerLink="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
       <ul class="right hide-on-med-and-down">
-          <li><a routerLink="/administracion/personas">Personas</a></li>
-          <li><a routerLink="/administracion/productos">Vehiculos</a></li>
-          <li><a routerLink="/solicitudes/registar-solicitud">Solicitudes</a></li>
-          <li><a routerLink="/seguridad/identificar">Iniciar sesion</a></li>
-
+        <li *ngIf="SeInicioSesion"><a routerLink="/administracion/personas">Personas</a></li>
+        <li *ngIf="SeInicioSesion"><a routerLink="/administracion/productos">Vehiculos</a></li>
+        <li *ngIf="SeInicioSesion"><a routerLink="/solicitudes/registar-solicitud">Solicitudes</a></li>
+        <li *ngIf="SeInicioSesion"><a routerLink="/seguridad/cambio-clave">Cambiar clave</a></li>
+        <li *ngIf="SeInicioSesion"><a routerLink="/seguridad/cerrar-session">Cerrar sesion</a></li>
+        <li *ngIf="!SeInicioSesion"><a routerLink="/seguridad/identificar">Iniciar sesion</a></li>
+      
+      
       </ul>
   </div>
 </nav>
 
 <ul class="sidenav" id="mobile-demo">
-  <li><a routerLink="/administracion/personas">Personas</a></li>
-  <li><a routerLink="/administracion/productos">Vehiculos</a></li>
-  <li><a routerLink="/Solicitudes/registar-solicitud">Solicitudes</a></li>
-  <li><a routerLink="/seguridad/cambio-clave">Cambiar clave</a></li>
+  <li *ngIf="SeInicioSesion"><a routerLink="/administracion/personas">Personas</a></li>
+  <li *ngIf="SeInicioSesion"><a routerLink="/administracion/productos">Vehiculos</a></li>
+  <li *ngIf="SeInicioSesion"><a routerLink="/solicitudes/registar-solicitud">Solicitudes</a></li>
+  <li *ngIf="SeInicioSesion"><a routerLink="/seguridad/cambio-clave">Cambiar clave</a></li>
+  <li *ngIf="SeInicioSesion"><a routerLink="/seguridad/cerrar-session">Cerrar sesion</a></li>
+  <li *ngIf="!SeInicioSesion"><a routerLink="/seguridad/identificar">Iniciar sesion</a></li>
 </ul>
 
