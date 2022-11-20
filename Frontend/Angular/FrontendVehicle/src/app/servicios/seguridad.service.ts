@@ -18,7 +18,16 @@ export class SeguridadService {
   }
 //Ojo preguntar como se enlasa el frontend con el Backend en esta parte de identificar ya que lo tenemos distinto
   Identificar(usuario: string, clave: string, rol: string): Observable<ModeloIdentificar> {
-    return this.http.post<ModeloIdentificar>(`${this.url}/identificarAsesor,${this.url}/identificarAdmin,${this.url}/identificarCliente`, {
+    let consumo = "";
+    if(rol=='asesor'){
+      consumo = 'identificarAsesor';
+    }else if(rol=='administrador'){
+      consumo = 'identificarAdmin';
+    }else if(rol=='cliente'){
+      consumo = 'identificarCliente';
+    }
+     
+    return this.http.post<ModeloIdentificar>(`${this.url}/${consumo}`, {
       usuario: usuario,
       clave: clave,
       rol: rol

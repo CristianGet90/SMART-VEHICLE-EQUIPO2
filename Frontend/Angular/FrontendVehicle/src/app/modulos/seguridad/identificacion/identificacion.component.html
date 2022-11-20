@@ -12,7 +12,7 @@
                     <div class="col s12 m12 l12 center">
                         <img src="https://i.imgur.com/ypAbAYt.png" alt="" class="responsive-img circle"
                             style="width:100px;">
-                        <p>App pedidos</p>
+                        <p>Iniciar Sesion Smart Vehicle</p>
                     </div>
                 </div>
 
@@ -22,7 +22,7 @@
                     <div class="input-field">
                         <i class="material-icons prefix">person</i>
                         <input formControlName="usuario" type="text" name="username" id="username">
-                        <label for="username">Username</label>
+                        <label for="username">Usuario</label>
                     </div>
                 </div>
 
@@ -32,23 +32,27 @@
                     <div class="input-field">
                         <i class="material-icons prefix">lock</i>
                         <input formControlName="clave" type="password" name="password" id="password">
-                        <label for="password">Password</label>
+                        <label for="password">Contraseña</label>
                     </div>
                 </div>
-
-                <div class="col s12 m12 l12">
-                    <div class="input-field">
-                        <i class="material-icons prefix">person</i>
-                        <input formControlName="rol" type="text" name="rol" id="rol">
-                        <label for="username">Rol</label>
-                    </div>
+                <i class="material-icons prefix">person</i>
+                    <label for="rol">Seleccione Tipo De Usuario</label>
+                <div class="input-field col m12 s12 l12">
+                    
+                    <select formControlName="rol" name="rol" id="rol">
+                      <option value="asesor">Asesor</option>
+                      <option value="administrador">Administrador</option>
+                      <option value="cliente">Cliente</option>
+                    </select>
+                
+                    
                 </div>
 
                 <!-- Form Chekbox (Remember Me) Input Section -->
 
                 <div class="left">
                     <input type="checkbox" id="checkbox">
-                    <label for="checkbox">Remember Me</label>
+                    <label for="checkbox"></label>
                 </div>
                 <br><br>
 
@@ -64,8 +68,8 @@
                 <!-- Form "Register Now" And "Forgot Password" Link Section. -->
 
                 <div class="" style="font-size:14px;"><br>
-                    <a href="" class="left">Register Now!</a>
-                    <a href="" class="right ">Forgot Password?</a>
+                    <a href="" class="left">Registrase Ahora!</a>
+                    <a href="" class="right ">Olvido la contraseña?</a>
                 </div><br>
             </div>
         </form>

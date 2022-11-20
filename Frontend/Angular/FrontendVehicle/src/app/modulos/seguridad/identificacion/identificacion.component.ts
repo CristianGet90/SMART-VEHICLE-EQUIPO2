@@ -3,8 +3,9 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators} from '@angular/forms';
 import { Router } from '@angular/router';
 import { SeguridadService } from 'src/app/servicios/seguridad.service';
-//import * as cryptoJS from "crypto-js";
-const cryptoJS = require("cryptojs");
+import * as cryptoJS from "crypto-js";
+declare var $: any;
+//const cryptoJS = require("cryptojs");
 
 @Component({
   selector: 'app-identificacion',
@@ -25,6 +26,16 @@ export class IdentificacionComponent implements OnInit {
   
 
   ngOnInit(): void {
+    document.addEventListener('DOMContentLoaded', function() {
+      var elems = document.querySelectorAll('select');
+      //var instances = M.FormSelect.init(elems, options);
+    });
+  
+    // Or with jQuery
+  
+    $(document).ready(function(){
+      $('select').formSelect();
+    });
   }
 
   IdentificarUsuario(){
