@@ -16,7 +16,7 @@ export class SeguridadService {
   constructor(private http: HttpClient) {
     this.VerificarSesionActual();
   }
-//Ojo preguntar como se enlasa el frontend con el Backend en esta parte de identificar ya que lo tenemos distinto
+//Aqui realizamos  validaciones de roles 
   Identificar(usuario: string, clave: string, rol: string): Observable<ModeloIdentificar> {
     let consumo = "";
     if(rol=='asesor'){
@@ -78,6 +78,16 @@ export class SeguridadService {
 
   ObtenerDatosUsuarioEnSesion(){
     return this.datosUsuarioEnSesion.asObservable();
+  }
+
+  ObtenerToken(){
+    let datosString = localStorage.getItem("datosSesion");
+    if(datosString){
+      let datos = JSON.parse(datosString);
+      return datos.tk
+    }else{
+      return '';
+    }
   }
 
 
