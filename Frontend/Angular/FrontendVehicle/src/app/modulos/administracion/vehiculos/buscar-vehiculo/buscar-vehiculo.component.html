@@ -1,1 +1,66 @@
-<p>buscar-vehiculo works!</p>
+
+<table class="table-responsive">
+    <thead>
+        <tr>
+            <th>
+                Imagen
+            </th>
+            <th>
+                Tipo 
+            </th>
+            <th>
+                Marca 
+            </th>
+            <th>
+                Valor alquiler
+            </th>
+            <th>
+                Valor compra
+            </th>
+            
+            <th>
+                Modelo
+            </th>
+            <th>
+                Editar
+            </th>
+            <th>
+                Eliminar
+            </th>
+            <th>
+                <a class="btn" routerLink="/administracion/crear-vehiculo">Agregar</a>
+            </th>
+
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let p of listadoRegistros">
+            <td>
+                <img src="{{p.imagen}}" class="imagenVehiculo"/>
+                
+            </td>
+            <td>
+                {{p.tipo}}
+            </td>
+            <td>
+                {{p.marca}}
+            </td>
+            <td>
+                {{p.valor_alquiler}}
+            </td>
+            <td>
+                {{p.valor_compra}}
+            </td>
+            <td>
+                {{p.modelo}}
+            </td>
+            
+            <td>
+                <a class="btn" routerLink="/administracion/editar-vehiculo/{{p.id}}">Editar</a>
+            </td>
+            <td>
+                <a class="btn" routerLink="/administracion/eliminar-vehiculo/{{p.id}}">Eliminarr</a>
+            </td>
+        </tr>
+    </tbody>
+</table>

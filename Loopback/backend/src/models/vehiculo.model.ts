@@ -13,9 +13,9 @@ export class Vehiculo extends Entity {
 
   @property({
     type: 'string',
-    required: true,
+    required: false,
   })
-  placa: string;
+  placa?: string;
 
   @property({
     type: 'string',
@@ -38,15 +38,15 @@ export class Vehiculo extends Entity {
   
   @property({
     type: 'string',
-    required: true,
+    //required: false,
   })
-  caracteristicas: string;
+  caracteristicas?: string;
 
   @property({
     type: 'number',
-    required: true,
+    //required: false,
   })
-  estado_vehiculo: number;
+  estado_vehiculo?: number;
 
   @property({
     type: 'number',
@@ -62,9 +62,9 @@ export class Vehiculo extends Entity {
 
   @property({
     type: 'string',
-    required: true,
+    //required: false,
   })
-  tipo_oferta: string;
+  tipo_oferta?: string;
 
   @property({
     type: 'string',
@@ -80,21 +80,21 @@ export class Vehiculo extends Entity {
 
   @property({
     type: 'string',
-    required: true,
+    //required: true,
   })
-  departamento: string;
+  departamento?: string;
 
   @property({
     type: 'string',
-    required: true,
+    //required: true,
   })
-  ciudad: string;
+  ciudad?: string;
 
   @property({
     type: 'string',
-    required: true,
+    //required: true,
   })
-  direccion: string;
+  direccion?: string;
 
   @hasOne(() => Solicitud)
   solicitud: Solicitud;

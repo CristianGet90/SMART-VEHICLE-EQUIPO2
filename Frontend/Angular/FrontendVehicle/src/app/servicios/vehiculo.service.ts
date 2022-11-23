@@ -18,7 +18,9 @@ export class VehiculoService {
 
   ObtenerRegistros(): Observable<ModeloVehiculo[]>{
     return this.http.get<ModeloVehiculo[]>(`${this.url}/vehiculos`);
-
+  }
+  ObtenerRegistroPorId(id: string): Observable<ModeloVehiculo>{
+    return this.http.get<ModeloVehiculo>(`${this.url}/vehiculos/${id}`);
   }
   CrearVehiculo(vehiculo: ModeloVehiculo): Observable<ModeloVehiculo>{
     return this.http.post<ModeloVehiculo>(`${this.url}/vehiculos`, vehiculo,{
@@ -28,7 +30,7 @@ export class VehiculoService {
     })
   }
   ActualizarVehiculo(vehiculo: ModeloVehiculo): Observable<ModeloVehiculo>{
-    return this.http.put<ModeloVehiculo>(`${this.url}/vehiculos`, vehiculo,{
+    return this.http.put<ModeloVehiculo>(`${this.url}/vehiculos/${vehiculo.id}`, vehiculo,{
       headers: new HttpHeaders({
         'Authorization':`Bearer ${this.token}`
       })

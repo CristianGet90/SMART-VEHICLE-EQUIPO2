@@ -30,6 +30,7 @@ export class VehiculoController {
     public vehiculoRepository : VehiculoRepository,
   ) {}
 
+  @authenticate.skip()
   @post('/vehiculos')
   @response(200, {
     description: 'Vehiculo model instance',
@@ -98,7 +99,8 @@ export class VehiculoController {
   ): Promise<Count> {
     return this.vehiculoRepository.updateAll(vehiculo, where);
   }
-
+  //pruebas
+  @authenticate.skip()
   @get('/vehiculos/{id}')
   @response(200, {
     description: 'Vehiculo model instance',

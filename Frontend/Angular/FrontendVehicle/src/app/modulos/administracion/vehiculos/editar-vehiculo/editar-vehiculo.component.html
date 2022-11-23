@@ -1,1 +1,42 @@
-<p>editar-vehiculo works!</p>
+<div class="row">
+    <h4 class="center-align">Editar Vehiculo</h4>
+    <article class="col s6 offset-s3">
+        <form [formGroup]="fgValidador" (ngSubmit)="EditarVehiculo()">
+            <input type="hidden" formControlName="id"  />
+            <div class="input-field">
+                <label for="imagen" class="active">Imagen</label>
+                <input formControlName="imagen" type="text" name="imagen" id="imagen" required/>
+            </div>
+            <div class="input-field">
+                <label for="tipo" class="active">Tipo</label>
+                <input formControlName="tipo" type="text" name="tipo" id="tipo" required/>
+            </div>
+            <div class="input-field">
+                <label for="marca" class="active">Marca</label>
+                <input formControlName="marca" type="text" name="marca" id="marca" required/>
+            </div>
+            <div class="input-field">
+                <label for="valor_alquiler" class="active">Valor de Alquiler</label>
+                <input formControlName="valor_alquiler" type="text" name="valor_alquiler" id="valor_alquiler" required/>
+            </div>
+
+            <div class="input-field">
+                <label for="valor_compra" class="active">Valor de Compra</label>
+                <input formControlName="valor_compra" type="text" name="valor_compra" id="valor_compra" required/>
+            </div>
+
+            <div class="input-field">
+                <label for="modelo" class="active">Modelo</label>
+                <input formControlName="modelo" type="text" name="modelo" id="modelo" required/>
+            </div>
+
+            <p class="center-align">
+                <button [disabled]="!fgValidador.valid" class="waves-effect waves-light btn" type="submit">
+                    <i class="material-icons right">send</i>Actualizar
+                </button>
+            </p>
+        </form>
+
+    </article>
+</div>
+
