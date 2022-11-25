@@ -11,6 +11,10 @@ import { EditarVehiculoComponent } from './vehiculos/editar-vehiculo/editar-vehi
 import { BuscarVehiculoComponent } from './vehiculos/buscar-vehiculo/buscar-vehiculo.component';
 import { EliminarVehiculoComponent } from './vehiculos/eliminar-vehiculo/eliminar-vehiculo.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { UsuariosComponent } from './usuarios/usuarios.component';
+import { CrearUsuarioComponent } from './usuarios/crear-usuario/crear-usuario.component';
+import { EditarUsuarioComponent } from './usuarios/editar-usuario/editar-usuario.component';
+import { EliminarUsuarioComponent } from './usuarios/eliminar-usuario/eliminar-usuario.component';
 
 
 @NgModule({
@@ -22,7 +26,11 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     CrearVehiculoComponent,
     EditarVehiculoComponent,
     BuscarVehiculoComponent,
-    EliminarVehiculoComponent
+    EliminarVehiculoComponent,
+    UsuariosComponent,
+    CrearUsuarioComponent,
+    EditarUsuarioComponent,
+    EliminarUsuarioComponent
   ],
   imports: [
     CommonModule,
