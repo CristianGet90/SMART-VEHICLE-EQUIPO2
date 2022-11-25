@@ -1,14 +1,14 @@
 /* You can add global styles to this file, and also import other style files */
 .slider .slides {
-    background-color: transparent;
-    margin: 0;
-    height: 400px;
+    background-color: transparent !important;
+    margin: 0 !important;
+    height: 400px !important;
 }
 
 .slider .slides li img {
-    height: 100%;
-    width: 100%;
-    background-position: center;
-    background-size:100% auto;
-    background-repeat: no-repeat;
+    height: 100% !important;
+    width: 100% !important;
+    background-position: center !important;
+    background-size:100% auto !important;
+    background-repeat: no-repeat !important;
 }
