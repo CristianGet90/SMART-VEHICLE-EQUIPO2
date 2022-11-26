@@ -1,3 +1,18 @@
+<script>
+
+  document.addEventListener('DOMContentLoaded', function() {
+    var elems = document.querySelectorAll('.sidenav');
+    var instances = M.Sidenav.init(elems, options);
+  });
+
+  // Or with jQuery
+
+  $(document).ready(function(){
+    $('.sidenav').sidenav();
+  });
+
+</script>
+
 <nav>
   <div class="nav-wrapper #4caf50 green">
       <a routerLink="/inicio" class="brand-logo">
@@ -5,7 +20,7 @@
       </a>
       <a routerLink="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
       <ul class="right hide-on-med-and-down">
-        <li *ngIf="SeInicioSesion"><a routerLink="/administracion/personas">Personas</a></li>
+        <li *ngIf="SeInicioSesion"><a routerLink="/administracion/buscar-usuario">Usuarios</a></li>
         <li *ngIf="SeInicioSesion"><a routerLink="/administracion/listar-vehiculos">Vehiculos</a></li>
         <li *ngIf="SeInicioSesion"><a routerLink="/solicitudes/registar-solicitud">Solicitudes</a></li>
         <li *ngIf="SeInicioSesion"><a routerLink="/seguridad/cambio-clave">Cambiar clave</a></li>
@@ -18,11 +33,11 @@
 </nav>
 
 <ul class="sidenav" id="mobile-demo">
-  <li *ngIf="SeInicioSesion"><a routerLink="/administracion/personas">Personas</a></li>
-  <li *ngIf="SeInicioSesion"><a routerLink="/administracion/productos">Vehiculos</a></li>
+  <li *ngIf="SeInicioSesion"><a routerLink="/administracion/buscar-usuario">Usuarios</a></li>
+  <li *ngIf="SeInicioSesion"><a routerLink="/administracion/listar-vehiculos">Vehiculos</a></li>
   <li *ngIf="SeInicioSesion"><a routerLink="/solicitudes/registar-solicitud">Solicitudes</a></li>
   <li *ngIf="SeInicioSesion"><a routerLink="/seguridad/cambio-clave">Cambiar clave</a></li>
-  <li *ngIf="SeInicioSesion"><a routerLink="/seguridad/cerrar-session">Cerrar sesion</a></li>
+  <li *ngIf="SeInicioSesion"><a routerLink="/seguridad/cerrar-sesion">Cerrar sesion</a></li>
   <li *ngIf="!SeInicioSesion"><a routerLink="/seguridad/identificar">Iniciar sesion</a></li>
 </ul>
 

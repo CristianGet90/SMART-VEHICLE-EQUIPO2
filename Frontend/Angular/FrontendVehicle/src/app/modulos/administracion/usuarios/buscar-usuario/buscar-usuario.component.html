@@ -1,0 +1,33 @@
+<div class="container">
+  <br>
+<button class="btn btn-primary" routerLink="/administracion/crear-usuario">Crear Usuario</button>
+<table class="striped">
+  <thead>
+    <th>Nombres</th>
+    <th>Apellidos</th>
+    <th>Documento</th>
+    <th>Correo</th>
+    <th>Direccion</th>
+    <th>Celular</th>
+    <th>Rol</th>
+
+    <th>Edicion</th>
+    <th>Borrado</th>
+  </thead>
+  <tbody>
+    <tr *ngFor="let usuario of listadoUsuarios">
+      <td>{{usuario.nombres}}</td>
+      <td>{{usuario.apellidos}}</td>
+      <td>{{usuario.numero_documento}}</td>
+      <td>{{usuario.email}}</td>
+      <td>{{usuario.direccion}}</td>
+      <td>{{usuario.celular}}</td>
+      <td>{{usuario.rol}}</td>
+
+      <td><a routerLink="/administracion/editar-usuario/{{usuario.id}}">Editar</a></td>
+      <td><a routerLink="/administracion/eliminar-usuario/{{usuario.id}}">Borrar</a></td>
+
+    </tr>
+  </tbody>
+</table>
+</div>

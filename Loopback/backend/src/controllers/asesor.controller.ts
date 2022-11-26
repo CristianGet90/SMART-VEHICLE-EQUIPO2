@@ -1,3 +1,4 @@
+import { authenticate } from '@loopback/authentication';
 import { service } from '@loopback/core';
 import {
   Count,
@@ -64,6 +65,7 @@ export class AsesorController {
 
   }
 
+  @authenticate.skip()
   @post('/asesores')
   @response(200, {
     description: 'Asesor model instance',
@@ -101,7 +103,7 @@ export class AsesorController {
          })
      return p;
   }
-
+  @authenticate.skip()
   @get('/asesors/count')
   @response(200, {
     description: 'Asesor model count',
@@ -112,7 +114,7 @@ export class AsesorController {
   ): Promise<Count> {
     return this.asesorRepository.count(where);
   }
-
+  @authenticate.skip()
   @get('/asesores')
   @response(200, {
     description: 'Array of Asesor model instances',
@@ -130,7 +132,7 @@ export class AsesorController {
   ): Promise<Asesor[]> {
     return this.asesorRepository.find(filter);
   }
-
+  @authenticate.skip()
   @patch('/asesores')
   @response(200, {
     description: 'Asesor PATCH success count',
@@ -149,7 +151,7 @@ export class AsesorController {
   ): Promise<Count> {
     return this.asesorRepository.updateAll(asesor, where);
   }
-
+  @authenticate.skip()
   @get('/asesores/{id}')
   @response(200, {
     description: 'Asesor model instance',
@@ -165,7 +167,7 @@ export class AsesorController {
   ): Promise<Asesor> {
     return this.asesorRepository.findById(id, filter);
   }
-
+  @authenticate.skip()
   @patch('/asesores/{id}')
   @response(204, {
     description: 'Asesor PATCH success',
@@ -183,7 +185,7 @@ export class AsesorController {
   ): Promise<void> {
     await this.asesorRepository.updateById(id, asesor);
   }
-
+  @authenticate.skip()
   @put('/asesores/{id}')
   @response(204, {
     description: 'Asesor PUT success',
@@ -194,7 +196,7 @@ export class AsesorController {
   ): Promise<void> {
     await this.asesorRepository.replaceById(id, asesor);
   }
-
+  @authenticate.skip()
   @del('/asesores/{id}')
   @response(204, {
     description: 'Asesor DELETE success',

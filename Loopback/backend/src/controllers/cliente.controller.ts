@@ -1,3 +1,4 @@
+import { authenticate } from '@loopback/authentication';
 import { service } from '@loopback/core';
 import {
   Count,
@@ -26,7 +27,7 @@ import { AutenticacionService } from '../services';
 
 
 const fetch = require('node-fetch');
-
+authenticate("admin")
 export class ClienteController {
   constructor(
     @repository(ClienteRepository)
@@ -34,7 +35,7 @@ export class ClienteController {
     @service(AutenticacionService)
     public servicioAutenticacion : AutenticacionService
   ) {}
-
+  @authenticate.skip() 
   @post("/identificarCliente", {
     responses:{
       '200' : {
@@ -65,7 +66,7 @@ export class ClienteController {
 
 
   }
-
+  @authenticate.skip()
   @post('/clientes')
   @response(200, {
     description: 'Cliente model instance',
@@ -102,7 +103,7 @@ export class ClienteController {
     return p;
     
   }
-
+  @authenticate.skip()
   @get('/clientes/count')
   @response(200, {
     description: 'Cliente model count',
@@ -113,7 +114,7 @@ export class ClienteController {
   ): Promise<Count> {
     return this.clienteRepository.count(where);
   }
-
+  @authenticate.skip()
   @get('/clientes')
   @response(200, {
     description: 'Array of Cliente model instances',
@@ -150,7 +151,7 @@ export class ClienteController {
   ): Promise<Count> {
     return this.clienteRepository.updateAll(cliente, where);
   }
-
+  @authenticate.skip()
   @get('/clientes/{id}')
   @response(200, {
     description: 'Cliente model instance',
@@ -166,7 +167,7 @@ export class ClienteController {
   ): Promise<Cliente> {
     return this.clienteRepository.findById(id, filter);
   }
-
+  @authenticate.skip()
   @patch('/clientes/{id}')
   @response(204, {
     description: 'Cliente PATCH success',
@@ -184,7 +185,7 @@ export class ClienteController {
   ): Promise<void> {
     await this.clienteRepository.updateById(id, cliente);
   }
-
+  @authenticate.skip()
   @put('/clientes/{id}')
   @response(204, {
     description: 'Cliente PUT success',
@@ -195,7 +196,7 @@ export class ClienteController {
   ): Promise<void> {
     await this.clienteRepository.replaceById(id, cliente);
   }
-
+  @authenticate.skip()
   @del('/clientes/{id}')
   @response(204, {
     description: 'Cliente DELETE success',
