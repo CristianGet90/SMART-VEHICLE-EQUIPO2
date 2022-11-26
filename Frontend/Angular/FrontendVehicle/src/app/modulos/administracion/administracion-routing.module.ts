@@ -1,36 +1,38 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { ValidadorSesionGuard } from 'src/app/guardianes/validador-sesion.guard';
-import { BuscarPersonaComponent } from './personas/buscar-persona/buscar-persona.component';
-import { CrearPersonaComponent } from './personas/crear-persona/crear-persona.component';
-import { EditarPersonaComponent } from './personas/editar-persona/editar-persona.component';
-import { EliminarPersonaComponent } from './personas/eliminar-persona/eliminar-persona.component';
+import { BuscarUsuarioComponent } from './usuarios/buscar-usuario/buscar-usuario.component';
+import { CrearUsuarioComponent } from './usuarios/crear-usuario/crear-usuario.component';
+import { EditarUsuarioComponent } from './usuarios/editar-usuario/editar-usuario.component';
+import { EliminarUsuarioComponent } from './usuarios/eliminar-usuario/eliminar-usuario.component';
+
 import { BuscarVehiculoComponent } from './vehiculos/buscar-vehiculo/buscar-vehiculo.component';
 import { CrearVehiculoComponent } from './vehiculos/crear-vehiculo/crear-vehiculo.component';
 import { EditarVehiculoComponent } from './vehiculos/editar-vehiculo/editar-vehiculo.component';
 import { EliminarVehiculoComponent } from './vehiculos/eliminar-vehiculo/eliminar-vehiculo.component';
 
 const routes: Routes = [
-  {
-    path: 'crear-persona',
-    component: CrearPersonaComponent,
-    canActivate: [ValidadorSesionGuard]
-  },
-  {
-    path: 'editar-persona',
-    component: EditarPersonaComponent,
-    canActivate: [ValidadorSesionGuard]
-  },
-  {
-    path: 'buscar-persona',
-    component: BuscarPersonaComponent,
-    canActivate: [ValidadorSesionGuard]
-  },
-  {
-    path: 'eliminar-persona',
-    component: EliminarPersonaComponent,
-    canActivate: [ValidadorSesionGuard]
-  },
+ 
+    {
+      path: 'crear-usuario',
+      component: CrearUsuarioComponent,
+      canActivate: [ValidadorSesionGuard]
+    },
+    {
+      path: 'editar-usuario/:id',
+      component: EditarUsuarioComponent,
+      canActivate: [ValidadorSesionGuard]
+    },
+    {
+      path:'buscar-usuario',
+      component: BuscarUsuarioComponent,
+      canActivate: [ValidadorSesionGuard]
+    },
+    {
+      path:'eliminar-usuario/:id',
+      component: EliminarUsuarioComponent,
+      canActivate: [ValidadorSesionGuard]
+    },
   {
     path: 'listar-vehiculos',
     component: BuscarVehiculoComponent,

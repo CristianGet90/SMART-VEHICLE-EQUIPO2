@@ -1,14 +1,14 @@
 <div class="row">
     <h3 class="center-align">Crear Usuario</h3>
     <article class="col s6 offset-s3">
-      <form [formGroup]="fgValidador" (ngSubmit)="GuardarUsuario()" action="">
+      <form [formGroup]="fgValidador" (ngSubmit)="GuardarUsuario()">
         <div class="input-field">
           <input formControlName="nombres" type="text" name="nombres" required>
           <label for="nombres">Nombres</label>
         </div>
         <div class="input-field">
-          <input formControlName="apellido" type="text" name="apellido" required>
-          <label for="apellido">Apellido</label>
+          <input formControlName="apellidos" type="text" name="apellidos" required>
+          <label for="apellidos">Apellido</label>
         </div>
         <div class="input-field">
             <input formControlName="tipo_documento" type="text" name="tipo_documento" required>
@@ -34,14 +34,14 @@
         <div class="col s12">
           <select formControlName="rol" style="display: block;">
             <option value="cliente" selected>Cliente</option>
-            <option value="abogado">Asesor</option>
-            <option value="abogado">Administrador</option>
+            <option value="asesor">Asesor</option>
+            <option value="administrador">Administrador</option>
           </select>
         </div>
         <br>
         <br>
         <p class="center-align">
-          <button [disabled]="fgValidador.invalid" class="btn btn-primary" type="submit">Crear</button>
+          <button [disabled]="!fgValidador.valid" class="btn btn-primary" type="submit">Crear</button>
         </p>
       </form>
     </article>

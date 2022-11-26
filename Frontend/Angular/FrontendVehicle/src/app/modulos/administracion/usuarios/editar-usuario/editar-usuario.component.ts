@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
+import { mode } from 'crypto-js';
 import { ModeloUsuario } from 'src/app/modelos/usuario.model';
 import { UsuarioService } from 'src/app/servicios/usuario.service';
 
@@ -35,7 +36,7 @@ export class EditarUsuarioComponent implements OnInit {
   BuscarUsuario(){
     this.usuarioService.ObtenerRegistroPorId(this.id).subscribe(
       (datos:ModeloUsuario) => {
-        this.fgValidador.controls['id'].setValue(datos.id);
+        this.fgValidador.controls['id'].setValue(this.id);
         this.fgValidador.controls['nombres'].setValue(datos.nombres);
         this.fgValidador.controls['apellidos'].setValue(datos.apellidos);
         this.fgValidador.controls['tipo_documento'].setValue(datos.tipo_documento);
@@ -71,14 +72,15 @@ export class EditarUsuarioComponent implements OnInit {
     modelo.celular = celular;
     modelo.direccion = direccion;
     modelo.rol = rol;
+    modelo.id = this.id;
 
     // Llamar el servcio de actualización del usuario
-    this.usuarioService.ActualizarUsuarioPorId(this.id,modelo).subscribe(
-      (datos) => {
+    this.usuarioService.ActualizarUsuario(modelo).subscribe(
+      (datos: ModeloUsuario) => {
         alert("Registro almacenado");
         this.router.navigate(["/administracion/buscar-usuario"]);
       },
-      (error) => {
+      (error: any) => {
         alert("Error almacenado el registro");
       }
     )

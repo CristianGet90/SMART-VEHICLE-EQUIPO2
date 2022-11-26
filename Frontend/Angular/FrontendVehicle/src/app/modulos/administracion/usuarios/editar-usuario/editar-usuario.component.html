@@ -1,7 +1,8 @@
 <div class="row">
     <h3 class="center-align">Editar Usuario</h3>
     <article class="col s6 offset-s3">
-      <form [formGroup]="fgValidador" (ngSubmit)="GuardarUsuario()" action="">
+      <form [formGroup]="fgValidador"  (ngSubmit)="ActualizarUsuario()" action="">
+        <input type="hidden" formControlName = "id">
         <div class="input-field">
           <input formControlName="nombres" type="text" name="nombres" required>
           <label for="nombres">Nombres</label>
@@ -34,14 +35,14 @@
         <div class="col s12">
           <select formControlName="rol" style="display: block;">
             <option value="cliente" selected>Cliente</option>
-            <option value="abogado">Asesor</option>
-            <option value="abogado">Administrador</option>
+            <option value="asesor">Asesor</option>
+            <option value="administrador">Administrador</option>
           </select>
         </div>
         <br>
         <br>
         <p class="center-align">
-          <button [disabled]="fgValidador.invalid" class="btn btn-primary" type="submit">Actualizar</button>
+          <button  [disabled]="!fgValidador.valid" class="btn btn-primary" type="submit">Actualizar</button>
         </p>
       </form>
     </article>
